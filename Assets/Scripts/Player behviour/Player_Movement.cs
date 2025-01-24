@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
+    public int XrayAmount = 0;
+
     [Header("Movement")]
     public float moveSpeed;
 
