@@ -41,15 +41,20 @@ public class Player_Movement : MonoBehaviour
     private void Update()
     {
          MyInput();
+        print (SprintCooldown);
+        print(Stamina);
     }
 
     private IEnumerator TimerFunc()
     {
         while (true)
         {
-            yield return new WaitForSeconds(3);
-            SprintCooldown = 0;
-
+            if (SprintCooldown == 1)
+            {
+                yield return new WaitForSeconds(3);
+                SprintCooldown = 0;
+                yield break;
+            }
         }
 
     }
@@ -67,11 +72,6 @@ public class Player_Movement : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (Stamina == 0)
-        {
-            TimerFunc();
-            SprintCooldown = 1;
-        }
         if (Input.GetKey(KeyCode.LeftShift) && Stamina > 0)
         {
             if (Stamina > 1 && SprintCooldown == 0)
@@ -79,6 +79,10 @@ public class Player_Movement : MonoBehaviour
                 SpeedBoost = 1.5f;
             }
             Stamina -= 1;
+            if (Stamina < 0)
+            {
+                Stamina = 0;
+            }
         }
         else
         {
@@ -87,6 +91,15 @@ public class Player_Movement : MonoBehaviour
                 Stamina += 0.1f;
             }
             SpeedBoost = 1;
+        }
+        if (Stamina < 1)
+        {
+            SprintCooldown = 1;
+            StartCoroutine(TimerFunc());
+        }
+        if (SprintCooldown == 0)
+        {
+            StopCoroutine(TimerFunc());
         }
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         moveDirection.y = 0;
