@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashlight: {fileID: 0}
   chargeValue: 20
-  respawnTime: 0
+  respawnTime: 30
   BatterySound: {fileID: 7443126941191152006}
 --- !u!82 &7443126941191152006
 AudioSource:

@@ -41,8 +41,6 @@ public class Player_Movement : MonoBehaviour
     private void Update()
     {
          MyInput();
-        print (SprintCooldown);
-        print(Stamina);
     }
 
     private IEnumerator TimerFunc()
