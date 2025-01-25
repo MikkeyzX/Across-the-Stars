@@ -37,12 +37,10 @@ public class Player_Movement : MonoBehaviour
     {
         while (true)
         {
-            if (SprintCooldown == 1)
-            {
-                yield return new WaitForSeconds(300);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
-                yield break;
-            }
+
+            yield return new WaitForSeconds(300);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+            yield break;
         }
 
     }
