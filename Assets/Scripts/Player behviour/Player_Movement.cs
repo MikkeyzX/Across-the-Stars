@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Movement : MonoBehaviour
 {
     public AudioSource WalkingSound;
+    public Slider slider;
 
     [Header("Movement")]
     public float moveSpeed;
+    public float Stamina;
+    public float SpeedBoost;
+    public float SprintCooldown;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -29,11 +34,24 @@ public class Player_Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        SpeedBoost = 1;
+        Stamina = 100;
     }
     
     private void Update()
     {
          MyInput();
+    }
+
+    private IEnumerator TimerFunc()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3);
+            SprintCooldown = 0;
+
+        }
+
     }
 
     private void FixedUpdate()
@@ -49,9 +67,30 @@ public class Player_Movement : MonoBehaviour
 
     private void MovePlayer()
     {
+        if (Stamina == 0)
+        {
+            TimerFunc();
+            SprintCooldown = 1;
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && Stamina > 0)
+        {
+            if (Stamina > 1 && SprintCooldown == 0)
+            {
+                SpeedBoost = 1.5f;
+            }
+            Stamina -= 1;
+        }
+        else
+        {
+            if (Stamina < 100)
+            {
+                Stamina += 0.1f;
+            }
+            SpeedBoost = 1;
+        }
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         moveDirection.y = 0;
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        rb.AddForce(moveDirection.normalized * moveSpeed * SpeedBoost * 10f, ForceMode.Force);
         var velocity = rb.velocity;
         velocity.y = 0;
         rb.velocity = velocity;
@@ -63,6 +102,7 @@ public class Player_Movement : MonoBehaviour
         {
             WalkingSound.UnPause();
         }
+        slider.value = Stamina/100;
     }
     
     private void OnCollisionEnter(Collision other)
