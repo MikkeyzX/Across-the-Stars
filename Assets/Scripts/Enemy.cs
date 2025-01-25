@@ -8,16 +8,17 @@ public class Enemy : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent _agent;
     private MeshRenderer meshRenderer;
     public AudioSource XraySound;
-
+    public GameObject Outline;
+    public GameObject Model;
+    public Rigidbody rb;
 
     private IEnumerator TimerFunc()
     {
         while (true)
         {
         yield return new WaitForSeconds(2);
-        foreach (Transform child in transform)
-            child.gameObject.SetActive(false);
-              
+        Outline.SetActive(false);
+        yield break;
         }
         
     }
@@ -25,12 +26,13 @@ public class Enemy : MonoBehaviour
     {
         meshRenderer = GetComponent<MeshRenderer>();
         _agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        Model.SetActive(true);
     }
 
     private void Start()
     {
-        foreach (Transform child in transform)
-            child.gameObject.SetActive(false);
+        Outline.SetActive(false);
+        Model.SetActive(true);
     }
     
     public void AddXrayCount()
@@ -50,12 +52,13 @@ public class Enemy : MonoBehaviour
             {
                 XraySound.Play();
                 Global.XrayAmount -= 1;
-                foreach (Transform child in transform)
-                    child.gameObject.SetActive(true);
+                Outline.SetActive(true);
                 StartCoroutine(TimerFunc());
 
             }
 
         }
+        var velocity = rb.velocity;
+        Model.transform.LookAt(player.transform.position);
     }
 }
