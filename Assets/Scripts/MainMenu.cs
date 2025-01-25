@@ -14,13 +14,13 @@ public class MainMenu : MonoBehaviour
     }
     public void Credits()
     {
-        object value = GameObject.mainMenu.SetActive(false);
-        object value = GameObject.menuCredits.SetActive(true);
+        mainMenu.SetActive(false);
+        menuCredits.SetActive(true);
     }
     public void Menu()
     {
-        object value = GameObject.gameObject.menuCredits.SetActive(false);
-        object value = GameObject.mainMenu.SetActive(true);
+        menuCredits.SetActive(false);
+        mainMenu.SetActive(true);
     }
 
 }
