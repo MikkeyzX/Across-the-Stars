@@ -7,14 +7,21 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     private UnityEngine.AI.NavMeshAgent _agent;
     private MeshRenderer meshRenderer;
-    public int XrayAmount;
 
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
         _agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
+
+    private void Start()
+    {
+        foreach (Transform child in transform)
+            child.gameObject.SetActive(false);
+    }
     
+    public void AddXrayCount()
+        {Global.XrayAmount += 1; }
 
     private void Update()
     {
@@ -25,9 +32,13 @@ public class Enemy : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            if (XrayAmount > 0)
+            print("NIGGER");
+            print(Global.XrayAmount);
+            if (Global.XrayAmount > 0)
             {
-                GameObject.GetChild().SetActive(true);
+                print("CHINK");
+                foreach (Transform child in transform)
+                    child.gameObject.SetActive(true);
             }
 
         }
