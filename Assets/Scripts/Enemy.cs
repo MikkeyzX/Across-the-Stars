@@ -54,11 +54,7 @@ public class Enemy : MonoBehaviour
                 Global.XrayAmount -= 1;
                 Outline.SetActive(true);
                 StartCoroutine(TimerFunc());
-
             }
-
         }
-        var velocity = rb.velocity;
-        Model.transform.LookAt(player.transform.position);
     }
 }
