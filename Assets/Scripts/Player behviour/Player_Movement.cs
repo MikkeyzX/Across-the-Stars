@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Player_Movement : MonoBehaviour
 {
+    public AudioSource DeathSound;
+    public AudioSource Death2Sound;
     public AudioSource WalkingSound;
     public Slider slider;
 
@@ -124,6 +126,8 @@ public class Player_Movement : MonoBehaviour
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            DeathSound.Play();
+            Death2Sound.Play();
         }
         
         if(other.transform.CompareTag("Winner"))
