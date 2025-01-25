@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
+    public AudioSource WalkingSound;
+
     [Header("Movement")]
     public float moveSpeed;
 
@@ -53,7 +55,14 @@ public class Player_Movement : MonoBehaviour
         var velocity = rb.velocity;
         velocity.y = 0;
         rb.velocity = velocity;
-
+        if (velocity.x == 0)
+        {
+            WalkingSound.Pause();
+        }
+        else
+        {
+            WalkingSound.UnPause();
+        }
     }
     
     private void OnCollisionEnter(Collision other)
