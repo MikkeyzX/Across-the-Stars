@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        print(Global.XrayAmount);
         
         if (player != null)
         {
@@ -48,7 +49,7 @@ public class Enemy : MonoBehaviour
         {
             if (Global.XrayAmount > 0)
             {
-                Global.XrayAmount -= 0;
+                Global.XrayAmount -= 1;
                 foreach (Transform child in transform)
                     child.gameObject.SetActive(true);
                 StartCoroutine(TimerFunc());
