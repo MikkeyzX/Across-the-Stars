@@ -38,7 +38,6 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        print(Global.XrayAmount);
         
         if (player != null)
         {
