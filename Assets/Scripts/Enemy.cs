@@ -7,7 +7,20 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     private UnityEngine.AI.NavMeshAgent _agent;
     private MeshRenderer meshRenderer;
+    private float Timer;
+    private float TimerTime;
 
+    private IEnumerator TimerFunc()
+    {
+        while (true)
+        {
+        yield return new WaitForSeconds(2);
+        foreach (Transform child in transform)
+            child.gameObject.SetActive(false);
+              
+        }
+        
+    }
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -25,6 +38,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        
         if (player != null)
         {
             _agent.SetDestination(player.transform.position);
@@ -32,13 +46,13 @@ public class Enemy : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            print("NIGGER");
-            print(Global.XrayAmount);
             if (Global.XrayAmount > 0)
             {
-                print("CHINK");
+                Global.XrayAmount -= 0;
                 foreach (Transform child in transform)
                     child.gameObject.SetActive(true);
+                StartCoroutine(TimerFunc());
+
             }
 
         }
