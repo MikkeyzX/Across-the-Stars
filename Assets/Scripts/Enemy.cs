@@ -7,8 +7,6 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     private UnityEngine.AI.NavMeshAgent _agent;
     private MeshRenderer meshRenderer;
-    private float Timer;
-    private float TimerTime;
     public AudioSource XraySound;
 
 
@@ -40,7 +38,6 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        print(Global.XrayAmount);
         
         if (player != null)
         {

@@ -267,9 +267,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WalkingSound: {fileID: 2897816164109927441}
+  slider: {fileID: 0}
   moveSpeed: 7
   Stamina: 0
   SpeedBoost: 0
+  SprintCooldown: 0
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
@@ -585,7 +587,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a802a18795cc2ec418057d4a7ca18256, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 82909cbb4290088489132abcc28d9a06, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
