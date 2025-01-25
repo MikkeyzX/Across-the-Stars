@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player_Movement : MonoBehaviour
 {
@@ -32,12 +33,27 @@ public class Player_Movement : MonoBehaviour
     public GameObject GameOver;
     public GameObject Win;
 
+    private IEnumerator TimerFuncSEXXX()
+    {
+        while (true)
+        {
+            if (SprintCooldown == 1)
+            {
+                yield return new WaitForSeconds(300);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+                yield break;
+            }
+        }
+
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         SpeedBoost = 1;
         Stamina = 100;
+        TimerFuncSEXXX();
     }
     
     private void Update()

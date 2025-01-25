@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Bad Ending Death.unity
+    guid: 4fc4a5bbc8a8e254e877d21f7ccaed0a
+  - enabled: 1
+    path: Assets/Scenes/Bad Ending Collision.unity
+    guid: 7cc4067406a9666409e6722d63c2050f
+  - enabled: 1
+    path: Assets/Scenes/Good Ending.unity
+    guid: 026ca0a575743584390768ee12f71d6d
   m_configObjects: {}
