@@ -24,13 +24,13 @@ public class BatteryBoost : MonoBehaviour
     {
         if(other.transform.CompareTag("Player") && active == true)
         {
+            BatterySound.Play();
+
             flashlight.Charger(chargeValue);
         
             meshRenderer.enabled = false;
 
             active = false;
-
-            BatterySound.Play();
 
             StartCoroutine(Reactivate());
         }

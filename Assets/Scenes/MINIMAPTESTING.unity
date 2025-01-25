@@ -2625,6 +2625,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: l charger
       objectReference: {fileID: 0}
+    - target: {fileID: 9176458208804790005, guid: d93878a94854bb74fbef8aeefa3cbe23, type: 3}
+      propertyPath: flashlight
+      value: 
+      objectReference: {fileID: 1765942691}
+    - target: {fileID: 9176458208804790005, guid: d93878a94854bb74fbef8aeefa3cbe23, type: 3}
+      propertyPath: respawnTime
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2665,6 +2673,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -1820, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1765942691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4667359307051850903, guid: 0b0a908d66e29e3468b20c3a1e7df4c2, type: 3}
+  m_PrefabInstance: {fileID: 1694180923913381664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1522833cdd57a64d861ac4cfeb713d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1778775826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2712,6 +2731,14 @@ PrefabInstance:
     - target: {fileID: 2520576966909343456, guid: 5fe61f1f941637c4cad53181b440debd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094519162659137104, guid: 5fe61f1f941637c4cad53181b440debd, type: 3}
+      propertyPath: flashlight
+      value: 
+      objectReference: {fileID: 1765942691}
+    - target: {fileID: 5094519162659137104, guid: 5fe61f1f941637c4cad53181b440debd, type: 3}
+      propertyPath: respawnTime
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6649430148141025654, guid: 5fe61f1f941637c4cad53181b440debd, type: 3}
       propertyPath: m_Name
@@ -2942,6 +2969,14 @@ PrefabInstance:
     - target: {fileID: 3444210622635367384, guid: 52243115039db3349b586355e0944401, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4824689643848353586, guid: 52243115039db3349b586355e0944401, type: 3}
+      propertyPath: flashlight
+      value: 
+      objectReference: {fileID: 1765942691}
+    - target: {fileID: 4824689643848353586, guid: 52243115039db3349b586355e0944401, type: 3}
+      propertyPath: respawnTime
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5331588824847376832, guid: 52243115039db3349b586355e0944401, type: 3}
       propertyPath: m_Name
