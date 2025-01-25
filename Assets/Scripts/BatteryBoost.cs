@@ -12,6 +12,7 @@ public class BatteryBoost : MonoBehaviour
     private MeshRenderer meshRenderer;
     private bool active;
     public float respawnTime;
+    public AudioSource BatterySound;
 
     private void Awake()
     {
@@ -28,6 +29,8 @@ public class BatteryBoost : MonoBehaviour
             meshRenderer.enabled = false;
 
             active = false;
+
+            BatterySound.Play();
 
             StartCoroutine(Reactivate());
         }

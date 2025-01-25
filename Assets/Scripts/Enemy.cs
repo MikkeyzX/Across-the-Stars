@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     private MeshRenderer meshRenderer;
     private float Timer;
     private float TimerTime;
+    public AudioSource XraySound;
+
 
     private IEnumerator TimerFunc()
     {
@@ -49,6 +51,7 @@ public class Enemy : MonoBehaviour
         {
             if (Global.XrayAmount > 0)
             {
+                XraySound.Play();
                 Global.XrayAmount -= 1;
                 foreach (Transform child in transform)
                     child.gameObject.SetActive(true);
